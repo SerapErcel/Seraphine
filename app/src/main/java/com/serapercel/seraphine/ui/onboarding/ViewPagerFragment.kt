@@ -1,14 +1,15 @@
-package com.serapercel.seraphine.onboarding
+package com.serapercel.seraphine.ui.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.serapercel.seraphine.adapter.ViewPagerAdapter
 import com.serapercel.seraphine.databinding.FragmentViewPagerBinding
-import com.serapercel.seraphine.onboarding.screens.FirstFragment
-import com.serapercel.seraphine.onboarding.screens.SecondFragment
-import com.serapercel.seraphine.onboarding.screens.ThirdFragment
+import com.serapercel.seraphine.ui.onboarding.screens.FirstFragment
+import com.serapercel.seraphine.ui.onboarding.screens.SecondFragment
+import com.serapercel.seraphine.ui.onboarding.screens.ThirdFragment
 
 class ViewPagerFragment : Fragment() {
     private var _binding: FragmentViewPagerBinding? = null

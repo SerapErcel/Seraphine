@@ -1,4 +1,4 @@
-package com.serapercel.seraphine
+package com.serapercel.seraphine.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.serapercel.seraphine.R
 
 
 class SplashFragment : Fragment() {

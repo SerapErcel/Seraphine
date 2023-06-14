@@ -1,4 +1,4 @@
-package com.serapercel.seraphine.onboarding.screens
+package com.serapercel.seraphine.ui.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle

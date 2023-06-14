@@ -12,4 +12,7 @@
     <string name="password">Password</string>
     <string name="mail">Mail</string>
     <string name="sign_in_uppercase">SIGN IN</string>
+    <string name="already_registered">Already Registered</string>
+    <string name="password_again">Password Again</string>
+    <string name="sign_up_uppercase">SIGN UP</string>
 </resources>

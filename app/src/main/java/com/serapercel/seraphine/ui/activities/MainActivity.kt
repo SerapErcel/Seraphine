@@ -1,7 +1,8 @@
-package com.serapercel.seraphine
+package com.serapercel.seraphine.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.serapercel.seraphine.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.serapercel.seraphine.onboarding
+package com.serapercel.seraphine.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
