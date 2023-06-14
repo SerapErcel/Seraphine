@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Seraphine</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="design">design</string>
+    <string name="seraphine">SERAPHINE</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="password">Password</string>
+    <string name="mail">Mail</string>
+    <string name="sign_in_uppercase">SIGN IN</string>
 </resources>

@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="sugar">#d774b4</color>
+    <color name="purple">#7b34ae</color>
+    <color name="turquoise">#7dffff</color>
+    <color name="gold">#f1a665</color>
+
+    <color name="light">#decfee</color>
+    <color name="blue">#9fdbe6</color>
+    <color name="smooth">#7678bc</color>
+    <color name="pink">#ca8bf5</color>
+    <color name="dark">#3e4160</color>
+    <color name="dark_opacity">#953e4160</color>
+
+
 </resources>
