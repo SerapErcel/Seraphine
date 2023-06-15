@@ -27,12 +27,13 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        auth= FirebaseAuth.getInstance()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth= FirebaseAuth.getInstance()
+
         binding.btnSignUpSU.setOnClickListener {
             email = binding.etMailSU.text.toString()
             password = binding.etPasswordSU.text.toString()

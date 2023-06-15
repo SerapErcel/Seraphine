@@ -52,4 +52,8 @@ dependencies {
     // Firebase Auth
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
 
+    // Retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
+
 }
