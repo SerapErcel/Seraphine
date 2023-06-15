@@ -6,22 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.serapercel.seraphine.configs.ApiClient
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.serapercel.seraphine.databinding.FragmentHomeBinding
 import com.serapercel.seraphine.model.MusicCategory
-import com.serapercel.seraphine.model.MusicResponse
-import com.serapercel.seraphine.service.MusicService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.serapercel.seraphine.util.toastLong
 
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    lateinit var service: MusicService
-    lateinit var list: List<MusicCategory>
+    private lateinit var list: ArrayList<MusicCategory>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,19 +28,29 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        service = ApiClient.getClient().create(MusicService::class.java)
+        readFirebase()
 
-        service.allMusics().enqueue(object : Callback<MusicResponse> {
-            override fun onResponse(call: Call<MusicResponse>, response: Response<MusicResponse>) {
-                val datas = response.body()
-                list = datas!!.musicCategories!!
-                Log.d("get music", list[1].baseTitle.toString())
-            }
+    }
 
-            override fun onFailure(call: Call<MusicResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message.toString(), Toast.LENGTH_SHORT).show()
+    private fun readFirebase() {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef =
+            db.collection("users").document(auth.currentUser!!.uid).collection("musics")
+        collectionRef.get()
+            .addOnSuccessListener { querySnapshot ->
+                Log.d("music", "querySnapshot.isEmpty " + querySnapshot.isEmpty.toString())
+
+                for (document in querySnapshot.documents) {
+                    Log.d("music", document.data.toString())
+                    val data = document.toObject(MusicCategory::class.java)
+                    list.add(data!!)
+                    Log.d("music", "Okunan veri: $data")
+                }
             }
-        })
+            .addOnFailureListener {
+                requireContext().toastLong(it.message.toString())
+            }
     }
 
     override fun onDestroyView() {
