@@ -73,5 +73,12 @@
         android:id="@+id/playFragment"
         android:name="com.serapercel.seraphine.ui.fragments.PlayFragment"
         android:label="fragment_play"
-        tools:layout="@layout/fragment_play" />
+        tools:layout="@layout/fragment_play" >
+        <argument
+            android:name="music"
+            app:argType="com.serapercel.seraphine.model.Music" />
+        <action
+            android:id="@+id/action_playFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
