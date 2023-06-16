@@ -64,5 +64,14 @@
         android:id="@+id/homeFragment"
         android:name="com.serapercel.seraphine.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_playFragment"
+            app:destination="@id/playFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.serapercel.seraphine.ui.fragments.PlayFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_play" />
 </navigation>

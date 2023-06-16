@@ -59,4 +59,7 @@ dependencies {
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
     implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
 
+    // Lottie Animation
+    implementation 'com.airbnb.android:lottie:3.7.0'
+
 }
