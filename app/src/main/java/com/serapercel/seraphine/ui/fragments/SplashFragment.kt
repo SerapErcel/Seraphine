@@ -10,14 +10,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.serapercel.seraphine.R
 
-
 class SplashFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         Handler().postDelayed({
             if (onBoardingFinished()) {
                 findNavController().navigate(R.id.action_splashFragment_to_signInFragment)
@@ -31,7 +29,7 @@ class SplashFragment : Fragment() {
     }
 
     private fun onBoardingFinished(): Boolean{
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val sharedPref = requireActivity().getSharedPreferences("seraphine", Context.MODE_PRIVATE)
         return sharedPref.getBoolean("Finished", false)
     }
 

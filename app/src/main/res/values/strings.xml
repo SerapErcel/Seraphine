@@ -15,4 +15,8 @@
     <string name="already_registered">Already Registered</string>
     <string name="password_again">Password Again</string>
     <string name="sign_up_uppercase">SIGN UP</string>
+    <string name="favorite">Favorite</string>
+    <string name="onboarding1">List music by categories.</string>
+    <string name="onboarding2">Adjust the volume and listen to music.</string>
+    <string name="onboarding3">Add your favorite music to your favourites.</string>
 </resources>

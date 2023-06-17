@@ -35,13 +35,13 @@ class PlayFragment : Fragment() {
         music = arguments?.getSerializable("music") as Music
 
         getMusicFavorites().addOnSuccessListener { musicList ->
-          if (musicList.contains(music)){
-              binding.btnAddFavorite.visibility= View.INVISIBLE
-              binding.btnRemoveFavorite.visibility= View.VISIBLE
-          }else{
-              binding.btnAddFavorite.visibility= View.VISIBLE
-              binding.btnRemoveFavorite.visibility= View.INVISIBLE
-          }
+            if (musicList.contains(music)) {
+                binding.btnAddFavorite.visibility = View.INVISIBLE
+                binding.btnRemoveFavorite.visibility = View.VISIBLE
+            } else {
+                binding.btnAddFavorite.visibility = View.VISIBLE
+                binding.btnRemoveFavorite.visibility = View.INVISIBLE
+            }
         }.addOnFailureListener { e ->
             requireContext().toastLong(e.message.toString())
         }
@@ -105,18 +105,27 @@ class PlayFragment : Fragment() {
             })
     }
 
-
     private fun saveVolume(volume: Float) {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val sharedPref = requireActivity().getSharedPreferences("seraphine", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putFloat("Volume", volume)
         editor.apply()
     }
 
     private fun getVolume(): Float {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val sharedPref = requireActivity().getSharedPreferences("seraphine", Context.MODE_PRIVATE)
         return sharedPref.getFloat("Volume", 0.5f)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.pause()
     }
 
     override fun onDestroyView() {
@@ -140,6 +149,7 @@ class PlayFragment : Fragment() {
             }
 
     }
+
     private fun getMusicFavorites(): Task<MutableList<Music>> {
         val auth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()

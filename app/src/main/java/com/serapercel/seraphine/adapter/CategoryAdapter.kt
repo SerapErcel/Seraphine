@@ -24,12 +24,12 @@ class CategoryAdapter(private val categoryList: MutableList<MusicCategory>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val categoryWithSubcategories = categoryList[position]
+        val categoryWithMusics = categoryList[position]
 
-        holder.titleTextView.text = categoryWithSubcategories.baseTitle
+        holder.titleTextView.text = categoryWithMusics.baseTitle
         holder.subCategoryRecyclerView.layoutManager = LinearLayoutManager(holder.itemView.context)
-        categoryWithSubcategories.items?.let {
-            holder.subCategoryRecyclerView.adapter = SubAdapter(categoryWithSubcategories.items)
+        categoryWithMusics.items?.let {
+            holder.subCategoryRecyclerView.adapter = SubAdapter(categoryWithMusics.items)
         }
     }
 

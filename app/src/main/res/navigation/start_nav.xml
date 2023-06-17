@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_homeFragment_to_playFragment"
             app:destination="@id/playFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/playFragment"
@@ -80,5 +83,14 @@
         <action
             android:id="@+id/action_playFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.serapercel.seraphine.ui.fragments.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_playFragment"
+            app:destination="@id/playFragment" />
     </fragment>
 </navigation>
