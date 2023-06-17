@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import com.serapercel.seraphine.databinding.FragmentPlayBinding
 import com.serapercel.seraphine.model.Music
 import com.serapercel.seraphine.util.toastLong
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.serapercel.seraphine.R
 
 class PlayFragment : Fragment() {
@@ -29,6 +33,18 @@ class PlayFragment : Fragment() {
     ): View {
         _binding = FragmentPlayBinding.inflate(inflater, container, false)
         music = arguments?.getSerializable("music") as Music
+
+        getMusicFavorites().addOnSuccessListener { musicList ->
+          if (musicList.contains(music)){
+              binding.btnAddFavorite.visibility= View.INVISIBLE
+              binding.btnRemoveFavorite.visibility= View.VISIBLE
+          }else{
+              binding.btnAddFavorite.visibility= View.VISIBLE
+              binding.btnRemoveFavorite.visibility= View.INVISIBLE
+          }
+        }.addOnFailureListener { e ->
+            requireContext().toastLong(e.message.toString())
+        }
 
         try {
             val uri = Uri.parse(music.url)
@@ -60,6 +76,12 @@ class PlayFragment : Fragment() {
             binding.btnPause.visibility = View.VISIBLE
             binding.btnPlay.visibility = View.INVISIBLE
             binding.lottieAnimation.visibility = View.VISIBLE
+        }
+
+        binding.btnAddFavorite.setOnClickListener {
+            addFirebase()
+            binding.btnAddFavorite.visibility = View.INVISIBLE
+            binding.btnRemoveFavorite.visibility = View.VISIBLE
         }
 
         binding.sbSound.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -100,5 +122,42 @@ class PlayFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun addFirebase() {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef =
+            db.collection("users").document(auth.currentUser!!.uid).collection("favorites")
+        collectionRef.add(music)
+            .addOnSuccessListener { documentReferences ->
+                // Başarılı bir şekilde eklenmişse burası çalışır.
+                Log.d("music", " favorite Success.")
+            }
+            .addOnFailureListener { e ->
+                // Bir hata oluşursa burası çalışır.
+                Log.d("music", "favorite Error: $e")
+            }
+
+    }
+    private fun getMusicFavorites(): Task<MutableList<Music>> {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef =
+            db.collection("users").document(auth.currentUser!!.uid).collection("favorites")
+
+        val newList = mutableListOf<Music>()
+
+        return collectionRef.get()
+            .continueWith { task ->
+                val querySnapshot = task.result
+                for (document in querySnapshot.documents) {
+                    val data = document.toObject(Music::class.java)
+                    data?.let {
+                        newList.add(it)
+                    }
+                }
+                newList
+            }
     }
 }
