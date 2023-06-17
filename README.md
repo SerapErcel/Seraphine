@@ -25,15 +25,17 @@ This project is an Android application that allows users to list music by catego
 - and more :)
 
 ## App ScreenShots
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/d4eebe25-1754-40b1-aba6-396a5052c21a" alt="IMG-20230617-WA0002" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/506ee13c-42aa-4844-8ee0-508801864351" alt="IMG-20230617-WA0005" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/62902874-be29-4fba-9a7e-fb2bb45a67d4" alt="IMG-20230617-WA0008" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/b78ceb67-0b4e-4289-81e3-1c671381befb" alt="IMG-20230617-WA0004" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/8368c6ca-699f-4530-b344-e0f0b03d200f" alt="IMG-20230617-WA0003" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/a63d63a3-b359-47e2-961d-915b614aa03c" alt="IMG-20230617-WA0006" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/ae5ccbab-4086-425e-b04b-1a16ce6fa4e5" alt="IMG-20230617-WA0007" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/48c3956d-6791-421a-8b10-05b0e6279a14" alt="IMG-20230617-WA0009" height="500" />
-<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/b62c0550-545b-4c4a-bcca-eb4c0c99492e" alt="IMG-20230617-WA0010" height="500" />
+
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/2884983b-9e61-45a3-9393-baf24dfae0a2" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/de17684d-4c42-4f6a-bda0-2e3f5b6b020d" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/305f52e9-a0d3-414c-a910-fed46d9211cb" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/9be95a00-03c8-461a-a7a6-62088727601e" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/5fdef7f7-98d2-4ed3-a7e1-fbb781067e19" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/7175c997-b343-4e79-a93a-5ff3f8749e69" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/d2cd85f1-8350-4aa5-a9cc-0eca73c9c925" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/8ff1ab64-1017-4c8d-b9c8-73b9c3b2ac8b" alt="IMG" height="500" />
+<img src="https://github.com/SerapErcel/Seraphine/assets/57289819/1f4eb771-a44c-4410-91a0-188b85eba0fe" alt="IMG" height="500" />
+
 
 ## Contributing
 
